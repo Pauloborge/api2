@@ -14,19 +14,20 @@
     <button onclick="enviar()">enviar</button>
 
     <script>
+
 function enviar(){
 
 const dados = {
-    nome:Document.getElementByld("nome").value,
-    idade:Document.getElementByld("idade").value,
-    curso:Document.getElementByld("curso").value
+    nome:Document.getElementById("nome").value,
+    idade:Document.getElementById("idade").value,
+    curso:Document.getElementById("curso").value
 };
 
 fetch("https://script.google.com/macros/s/AKfycbzhFSlzHhaHUvxTyqcHnphfP-ztwIsZ2J7A1Avxu5AK7vMdgEzMLk2EuPC1DOGeerCTbA/exec",{
     method:"POST",
     body: JSON.stringify(dados)
 })
-.then(res =>res_text())
+.then(res =>res.text())
 .then(resposta=> {
     alert("Dados enviados!");
     console.log(resposta);
